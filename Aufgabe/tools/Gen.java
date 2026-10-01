@@ -1,3 +1,10 @@
+// EINMAL-GENERATOR — NICHT im normalen Build verwenden.
+// Erzeugt Salt/IV/Ciphertext fuer die Challenge. Der IV stammt aus SecureRandom,
+// d.h. jeder Lauf liefert ein NEUES, in sich stimmiges Wertepaar. Wird Gen erneut
+// ausgefuehrt, MUESSEN danach sowohl src/de/dhbw/vault/K.java (S/V/C) ALS AUCH
+// solver/Solve.java (IV_B64/CT_B64) mit der neuen Ausgabe aktualisiert werden,
+// sonst passen Challenge und Solver nicht mehr zusammen.
+// build.sh ruft Gen bewusst NICHT auf und ist damit reproduzierbar.
 import java.nio.charset.StandardCharsets;
 import java.security.spec.KeySpec;
 import java.security.SecureRandom;
